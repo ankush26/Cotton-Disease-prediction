@@ -173,6 +173,7 @@ function About(props) {
                     </div>
                     <div className="col-xl-7 col-md-12">
                         <div className="wrap-about" data-aos="fade-up" data-aos-duration="800">
+                            <h5 className='mb-3'>Symptoms</h5>
                             {
                                 symptoms[data.index].map(item => (
                                     <AboutItem key={item.id} item={item} />

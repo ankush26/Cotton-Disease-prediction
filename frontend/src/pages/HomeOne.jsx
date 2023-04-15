@@ -31,8 +31,9 @@ function HomeOne(props) {
         <Slider data={dataSlider} pdata = {data} sdata = {setData}/>
 
         
-      {data && data.isLeaf=="leaf" && (<>
+      {data && data.isLeaf=="leaf" && data.index!=3 && (<>
         <About data={data} />
+        <Work data={data} /> 
         
 
         {/* <Project data={dataProject} />

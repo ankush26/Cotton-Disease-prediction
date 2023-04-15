@@ -24,6 +24,7 @@ app.add_middleware(
 )
 
 MODEL = tf.keras.models.load_model("../model/1/cotton_leaf_Disease.h5")
+
 LEAF_OR_NOT_MODEL = tf.keras.models.load_model("../model/leafOrNotModel.h5")
 
 CLASS_NAMES = ['Aphids', 'Army worm', 'Bacterial blight', 'Healthy', 'Powdery mildew', 'Target spot']
@@ -38,7 +39,7 @@ def load_img_from_array(image_array, target_size=(256,256)):
 
 @app.get("/ping")
 async def ping():
-    return "Hello, I am alive"
+    return "Hello World"
 
 def read_file_as_image(data) -> np.ndarray:
     image = np.array(Image.open(BytesIO(data)))
@@ -48,6 +49,7 @@ def read_file_as_image(data) -> np.ndarray:
 async def predict(
     file: UploadFile = File(...)
 ):
+    
     image = read_file_as_image(await file.read())
     img_batch = np.expand_dims(image, 0)
 
